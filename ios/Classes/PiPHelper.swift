@@ -192,8 +192,8 @@ class PiPHelper: NSObject, AVPictureInPictureControllerDelegate {
                 let rootController = rootWindow!.rootViewController
                 let flController = (rootController as! FlutterViewController)
                 let engine = flController.engine
-                engine.viewController = nil
-                let newController = FlutterViewController(engine: engine, nibName: flController.nibName, bundle: flController.nibBundle)
+                engine?.viewController = nil
+                let newController = FlutterViewController(engine: engine!, nibName: flController.nibName, bundle: flController.nibBundle)
                 flController.dismiss(animated: true)
                 newController.view.frame = rect
                 firstWindow.rootViewController = newController
@@ -229,8 +229,8 @@ class PiPHelper: NSObject, AVPictureInPictureControllerDelegate {
             if firstWindow!.rootViewController is FlutterViewController {
                 let flController = (firstWindow!.rootViewController as! FlutterViewController)
                 let engine = flController.engine
-                engine.viewController = nil
-                let newController = FlutterViewController(engine: flController.engine, nibName: flController.nibName, bundle: flController.nibBundle)
+                engine?.viewController = nil
+                let newController = FlutterViewController(engine: flController.engine!, nibName: flController.nibName, bundle: flController.nibBundle)
                 flController.dismiss(animated: true)
                 firstWindow!.rootViewController = nil
                 newController.view.frame = rect
